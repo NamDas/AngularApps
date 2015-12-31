@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+
+<body ng-app="usersApp">
+<div class="container" ng-controller="usersController">
+	<h1 align="center">Users Management</h1>
+	<br><br>
+
+	<table class="table table-striped">
+		<thead>
+		<tr>
+		  <th>Id</th>
+		  <th>Name</th>
+		  <th>Email</th>
+		  <th>Street</th>
+		 <th>Albums</th>
+		</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="usr in users">
+					<td><a href="#" ng-click="click(usr.id)">{{usr.id}}</a></td>				
+					<td>{{ usr.name}}</td>
+					<td>{{ usr.email }}</td>
+					<td>{{ usr.address.zipcode}}</td>
+					<!--<td><table><tr ng-repeat="al in albums"><td>{{al.title}}..</td>-->
+					</tr></table></td>
+					
+			</tr>
+
+			
+			
+		</tbody>
+    </table>
+	
+	
+
+
+
+	 <div ng-show="editorEnabled">
+		 <div class="form-group">
+	  		<label for="usr">Name:</label>
+	  		<input type="text" class="form-control" id="usr" ng-model="newName" ng-show="editorEnabled">
+		</div>
+		<div class="form-group">
+	  		<label for="addr">Address:</label>
+	  		<input type="text" class="form-control" id="addr" ng-model="add" ng-show="editorEnabled">
+		</div>
+		<div class="form-group">
+	  		<label for="albums">Albums:</label>
+	  		<textarea class="form-control" rows="5" id="albums" ng-model="allAlbums" ng-show="editorEnabled"></textarea>
+		</div>
+	</div>
+
+
+
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src= "usersApp.js"></script>
+</div> <!-- Container div ends-->
+</body>
+</html>
